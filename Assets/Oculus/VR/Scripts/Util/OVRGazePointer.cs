@@ -152,14 +152,14 @@ public class OVRGazePointer : OVRCursor {
 
         _instance = this;
 
-        gazeIcon = transform.Find("GazeIcon");
+		gazeIcon = transform.Find("GazeIcon");
         progressIndicator = transform.GetComponent<OVRProgressIndicator>();
     }
 
     void Update ()
     {
-        if (rayTransform == null && Camera.main != null)
-            rayTransform = Camera.main.transform;
+		if (rayTransform == null && Camera.main != null)
+			rayTransform = Camera.main.transform;
 
         // Move the gaze cursor to keep it in the middle of the view
         transform.position = rayTransform.position + rayTransform.forward * depth;
@@ -219,10 +219,10 @@ public class OVRGazePointer : OVRCursor {
         }
 
         Quaternion iconRotation = gazeIcon.rotation;
-        iconRotation.SetLookRotation(transform.rotation * new Vector3(0, 0, 1));
-        gazeIcon.rotation = iconRotation;
+		iconRotation.SetLookRotation(transform.rotation * new Vector3(0, 0, 1));
+		gazeIcon.rotation = iconRotation;
 
-        positionSetsThisFrame = 0;
+		positionSetsThisFrame = 0;
     }
 
     /// <summary>
